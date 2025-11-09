@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curiozități și mistere Tradiționale</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo"><a href="index.html">C&M Tradiționale</a></h1>
+    <nav>
+  <ul class="nav-links">
+    <li><a href="index.html">Acasă</a></li>
+
+    <!-- Dropdown Categorii -->
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Categorii</a>
+      <ul class="dropdown-content">
+        <li><a href="#">Istorie Antică</a></li>
+        <li><a href="#">Evul Mediu</a></li>
+        <li><a href="#">Epoca Modernă</a></li>
+        <li><a href="#">România Contemporană</a></li>
+        <li><a href="#">Personalități</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">Despre</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+      <!-- Comutator light/dark -->
+      <div class="theme-toggle" id="theme-toggle">
+        <span class="icon">☀️</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="articles">
+  <a href="articol1.html" class="card">
+    <div class="card-image">
+      <img src="images/Societatea-medievala-1591605900.jpg" alt="Epoca Medievală">
+    </div>
+    <div class="card-content">
+      <h3>Epoca Medievală</h3>
+      <p>Explorează domniile marilor voievozi și evenimentele care au modelat istoria României.</p>
+    </div>
+  </a>
+
+  <a href="articol2.html" class="card">
+    <div class="card-image">
+      <img src="images/unirea-principatelor-romane-1-1784776763.png" alt="Unirea Principatelor">
+    </div>
+    <div class="card-content">
+      <h3>Unirea Principatelor</h3>
+      <p>Află cum s-a realizat Mica Unire și ce rol a avut Alexandru Ioan Cuza.</p>
+    </div>
+  </a>
+
+  <a href="articol3.html" class="card">
+    <div class="card-image">
+      <img src="images/Ateneul-Roman-din-Bucuresti-1107647763.jpg" alt="România Modernă">
+    </div>
+    <div class="card-content">
+      <h3>România Modernă</h3>
+      <p>Descoperă transformările politice, culturale și sociale din secolul XX până astăzi.</p>
+    </div>
+  </a>
+</section>
+
+
+  </main>
+
+  <footer>
+    <p>© 2025 C&M Tradiționale | Toate drepturile rezervate</p>
+    <div class="social-links">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">TikTok</a>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const icon = toggle.querySelector(".icon");
+    const body = document.body;
+
+    // Încarcă tema salvată
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      icon.textContent = "🌙";
+    }
+
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      const isDark = body.classList.contains("dark");
+      icon.textContent = isDark ? "🌙" : "☀️";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  </script>
+</body>
+</html>

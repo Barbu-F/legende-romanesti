@@ -1,0 +1,303 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:"Poppins",sans-serif;
+  background:#f9f9f9;color:#333;
+  display:flex;flex-direction:column;min-height:100vh;
+  transition:background .3s,color .3s;
+}
+
+/* ==== DARK MODE ==== */
+body.dark{background:#121212;color:#ddd;}
+body.dark header{background:#1e1e1e;}
+body.dark .card{background:#1f1f1f;color:#ddd;}
+body.dark footer{background:#1e1e1e;}
+
+/* ==== HEADER ==== */
+header{
+  background:#222;color:#fff;padding:1rem 0;
+  position:sticky;top:0;z-index:1000;
+}
+header .container{
+  display:flex;justify-content:space-between;align-items:center;
+  width:90%;max-width:1200px;margin:auto;
+}
+.logo{font-size:1.8rem;font-weight:bold;}
+.logo a{
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+  transition:color .3s;
+}
+.logo a:hover{color:#e63946;}
+
+.nav-links{list-style:none;display:flex;gap:1.5rem;}
+.nav-links a{
+  color:#fff;text-decoration:none;position:relative;padding:.3rem 0;
+  transition:color .3s;
+}
+/* ==== DROPDOWN MENU (Categorii) ==== */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem;
+  position: relative;
+  transition: color 0.3s;
+}
+
+/* Efectul de subliniere la hover */
+.nav-links a::before,
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #e63946;
+  transition: width 0.3s;
+}
+
+.nav-links a::before {
+  top: 0;
+  left: 0;
+}
+.nav-links a::after {
+  bottom: 0;
+  right: 0;
+}
+
+.nav-links a:hover::before,
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ==== Dropdown-ul propriu-zis ==== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* se lipește exact sub buton */
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 0 0 0.5rem 0.5rem;
+  min-width: 220px;
+  z-index: 1000;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Elemente din dropdown */
+.dropdown-content li a {
+  display: block;
+  padding: 0.8rem 1rem;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dropdown-content li a:hover {
+  background: #e63946;
+  color: #fff;
+}
+
+/* Când e hover pe întregul dropdown (inclusiv lista), rămâne activ */
+.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* DARK MODE */
+body.dark .dropdown-content {
+  background: #2a2a2a;
+}
+body.dark .dropdown-content li a {
+  color: #ddd;
+}
+body.dark .dropdown-content li a:hover {
+  background: #ff6b6b;
+  color: #fff;
+}
+
+
+/* Hover underline animation */
+.nav-links a::before,.nav-links a::after{
+  content:"";position:absolute;height:2px;width:0;background:#e63946;
+  transition:all .3s;
+}
+.nav-links a::before{top:0;left:0;}
+.nav-links a::after{bottom:0;right:0;}
+.nav-links a:hover::before,.nav-links a:hover::after{width:100%;}
+.nav-links a:hover{color:#e63946;}
+
+/* ==== THEME TOGGLE ==== */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.theme-toggle:hover {
+  transform: rotate(20deg);
+  color: #e63946;
+}
+body.dark .theme-toggle {
+  color: #ffd166;
+}
+body.dark .theme-toggle:hover {
+  color: #f1fa89;
+}
+
+/* ==== CONTENT ==== */
+.content{flex:1;width:90%;max-width:1200px;margin:2rem auto;}
+.hero{text-align:center;margin-bottom:3rem;}
+.articles{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:2rem;
+}
+
+/* ==== ARTICLE CARDS ==== */
+.articles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 180px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ---- Imaginea în partea dreaptă ---- */
+.card-image {
+  position: absolute;
+  top: 0;
+  right: -45%; /* inițial puțin vizibilă */
+  width: 60%;
+  height: 100%;
+  overflow: hidden;
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%); /* tăietură 45° la stânga */
+  transition: all 0.6s ease;
+  z-index: 1;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-image {
+  right: 0; /* imaginea iese mai mult, dar nu peste text */
+}
+
+.card:hover .card-image img {
+  transform: scale(1);
+}
+
+/* ---- Textul articolului ---- */
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  width: 60%;
+  transition: color 0.3s ease;
+}
+
+.card-content h3 {
+  color: #e63946;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.card-content p {
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+/* ---- DARK MODE ---- */
+body.dark .card {
+  background: #1f1f1f;
+  color: #ddd;
+}
+body.dark .card-content h3 {
+  color: #ff6b6b;
+}
+body.dark .card:hover {
+  background: #2a2a2a;
+}
+
+/* ---- Responsivitate ---- */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    height: auto;
+  }
+  .card-image {
+    position: relative;
+    width: 100%;
+    right: 0;
+    clip-path: none;
+    height: 180px;
+  }
+  .card-content {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+
+/* ==== FOOTER ==== */
+footer{
+  background:#222;color:#fff;text-align:center;
+  padding:1rem 0;position:fixed;bottom:0;left:0;width:100%;
+}
+footer .social-links{margin-top:.5rem;}
+footer .social-links a{
+  color:#e63946;margin:0 .5rem;text-decoration:none;transition:color .3s;
+}
+footer .social-links a:hover{color:#fff;}
+
+/* ==== RESPONSIVE ==== */
+@media(max-width:768px){
+  header .container{flex-direction:column;gap:1rem;}
+  .nav-links{flex-wrap:wrap;justify-content:center;}
+}
