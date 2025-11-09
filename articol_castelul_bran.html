@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legende Românești</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo"><a href="index.html">Legende Românești</a></h1>
+    <nav>
+  <ul class="nav-links">
+    <li><a href="index.html">Acasă</a></li>
+
+    <!-- Dropdown Categorii -->
+    <li class="dropdown">
+      <a href="#" class="dropbtn">Categorii</a>
+      <ul class="dropdown-content">
+        <li><a href="#">Istorie Antică</a></li>
+        <li><a href="#">Evul Mediu</a></li>
+        <li><a href="#">Epoca Modernă</a></li>
+        <li><a href="#">România Contemporană</a></li>
+        <li><a href="#">Personalități</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#">Despre</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+      <!-- Comutator light/dark -->
+      <div class="theme-toggle" id="theme-toggle">
+        <span class="icon">☀️</span>
+      </div>
+    </div>
+  </header>
+  <style>
+    /* Stil pentru butonul mic, rotund și fixat în stânga sus */
+    .back-btn {
+      position: fixed;
+      top: 80px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Stilizare articol */
+    .content {
+      max-width: 800px;
+      margin: 4rem auto 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .post h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .post img {
+      width: 100%;
+      max-width: 700px;
+      display: block;
+      margin: 1.5rem auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .post p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+      line-height: 1.7;
+    }
+
+   
+  </style>
+</head>
+<body>
+
+  <!-- Buton fixat Înapoi -->
+  <a href="index.html" class="back-btn" title="Înapoi">&#8592;</a>
+
+  <main class="content">
+    <article class="post">
+      <h2>Castelul Bran – Între legendă, istorie și mister</h2>
+
+      <img src="images/Castelul-Bran-shutterstock-3-3323005901.jpg" alt="Castelul Bran">
+
+      <p>Castelul Bran se ridică semeț pe o stâncă abruptă la granița dintre Transilvania și Țara Românească, în apropierea orașului Brașov. Construit în secolul XIV (finalizat în 1388), el a avut inițial un rol strategic și militar, servind drept fortăreață de apărare și vamă pentru negustorii care traversau pasul Bran.</p>
+
+      <p>Deși legătura istorică dintre Vlad Țepeș și Castelul Bran este slab documentată, legenda populară l-a asociat pentru totdeauna cu figura contelui Dracula. Scriitorul Bram Stoker, autorul celebrului roman „Dracula”, nu a vizitat România, dar a plasat castelul personajului său într-un decor care seamănă izbitor cu Branul: un castel gotic izolat, aflat pe o stâncă abruptă deasupra unei prăpăstii.</p>
+
+      <p>Dincolo de miturile întunecate, Castelul Bran are și o istorie romantică. În secolul XX, regele Ferdinand și regina Maria au restaurat castelul și l-au transformat într-o reședință regală de vară. Regina Maria a adăugat interioare pline de farmec: mobilier sculptat, ferestre arcuite, pasaje secrete și grădini de poveste. Castelul a devenit astfel un loc al eleganței și al liniștii.</p>
+
+      <p>Localnicii spun că, în nopțile cu ceață, umbrele de pe zidurile castelului par să prindă viață. Se vorbește despre tuneluri secrete și ecouri ciudate în curtea interioară, iar legenda Doamnei Albe spune că spiritul unei nobile bântuie turnul estic.</p>
+
+      <p>Astăzi, Castelul Bran este unul dintre cele mai vizitate obiective turistice din România, primind anual peste un milion de vizitatori. Castelul găzduiește un muzeu, expoziții tematice și evenimente culturale, dar rămâne, în același timp, un loc unde istoria se împletește cu legenda.</p>
+
+      <p>Castelul Bran nu este doar un monument al arhitecturii medievale, ci o poartă către misterele sufletului românesc. Fie că îl vezi ca fortăreață, ca reședință regală sau ca lăcaș al lui Dracula, el rămâne o mărturie vie a legăturii dintre realitate și mit.</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>© 2025 Legende Românești | Toate drepturile rezervate</p>
+    <div class="social-links">
+      <a href="#">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61581979617355" target="_blank">Facebook</a>
+      <a href="#">TikTok</a>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const icon = toggle.querySelector(".icon");
+    const body = document.body;
+
+    // Încarcă tema salvată
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      icon.textContent = "🌙";
+    }
+
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      const isDark = body.classList.contains("dark");
+      icon.textContent = isDark ? "🌙" : "☀️";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  </script>
+</body>
+</html>
