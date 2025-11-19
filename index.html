@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Legende Românești</title>
+  <link rel="icon" type="image/png" href="images/Gemini_Generated_Image_6dan7s6dan7s6dan (1).png">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -32,10 +33,23 @@
 </nav>
 
       <!-- Comutator light/dark -->
-      <div class="theme-toggle" id="theme-toggle">
-        <span class="icon">☀️</span>
-      </div>
-    </div>
+    <label for="theme" class="theme">
+  <span class="theme__toggle-wrap">
+    <input id="theme" class="theme__toggle" type="checkbox" role="switch" name="theme" value="dark">
+    <span class="theme__fill"></span>
+    <span class="theme__icon">
+      <span class="theme__icon-part"></span>
+      <span class="theme__icon-part"></span>
+      <span class="theme__icon-part"></span>
+      <span class="theme__icon-part"></span>
+      <span class="theme__icon-part"></span>
+      <span class="theme__icon-part"></span>
+      <span class="theme__icon-part"></span>
+      <span class="theme__icon-part"></span>
+      <span class="theme__icon-part"></span>
+    </span>
+  </span>
+</label>
   </header>
 
   <main class="content">
@@ -50,23 +64,69 @@
     </div>
   </a>
 
-  <a href="articol2.html" class="card">
+  <a href="articol_sanziene.html" class="card">
     <div class="card-image">
-      <img src="images/unirea-principatelor-romane-1-1784776763.png" alt="Unirea Principatelor">
+      <img src="images/sanziene.png" alt="Sanziene">
     </div>
     <div class="card-content">
-      <h3>Unirea Principatelor</h3>
-      <p>Află cum s-a realizat Mica Unire și ce rol a avut Alexandru Ioan Cuza.</p>
+      <h3>Sânzienele</h3>
+      <p>Origine, mituri și magia unei nopti fermecate</p>
     </div>
   </a>
 
-  <a href="articol3.html" class="card">
+  <a href="articol_strigoi.html" class="card">
     <div class="card-image">
-      <img src="images/Ateneul-Roman-din-Bucuresti-1107647763.jpg" alt="România Modernă">
+      <img src="images/Gemini_Generated_Image_p34s9dp34s9dp34s.jpg" alt="România Modernă">
     </div>
     <div class="card-content">
-      <h3>România Modernă</h3>
-      <p>Descoperă transformările politice, culturale și sociale din secolul XX până astăzi.</p>
+      <h3>Strigoii din România</h3>
+      <p>Umbrele Nevăzute ale Folclorului</p>
+    </div>
+  </a>
+  <a href="articol_dacii_si_misterul_cetatilor_ascunse.html" class="card">
+    <div class="card-image">
+      <img src="images/daci-2331495643.jpg" alt="Dacii">
+    </div>
+    <div class="card-content">
+      <h3>Dacii și misterul cetăților ascunse</h3>
+      <p>Explorează lumea dacilor, cetățile lor misterioase și legendele comorilor ascunse în Carpați.</p>
+    </div>
+  </a>
+  <a href="articol_unirea_principatelor.html" class="card">
+    <div class="card-image">
+      <img src="images/unirea-principatelor-romane-24-ianuarie-1859-e1548322431895.png" alt="România Modernă">
+    </div>
+    <div class="card-content">
+      <h3>Unirea Principatelor</h3>
+      <p>Află cum Alexandru Ioan Cuza a unit Moldova și Țara Românească, punând bazele statului modern român.</p>
+
+    </div>
+  </a>
+  <a href="articol_romania_moderna.html" class="card">
+    <div class="card-image">
+      <img src="images/romania_moderna.1.jpg" alt="România Modernă">
+    </div>
+    <div class="card-content">
+      <h3>România Modernă – De la reformele principale la identitatea europeană</h3>
+      <p>O privire amplă asupra transformării României în epoca modernă, de la marile reforme politice și sociale până la drumul către Europa contemporană.</p>
+    </div>
+  </a>
+  <a href="articol_Mihai_Viteazul.html" class="card">
+    <div class="card-image">
+      <img src="images/mihai-viteazul-portret-de-valentin-tanase.jpg-1910001747 (1).jpg" alt="Mihai Viteazul">
+    </div>
+    <div class="card-content">
+      <h3>Mihai Viteazul și Prima Unire a Țărilor Românești (1600).</h3>
+      <p>Descoperă povestea fascinantă a lui Mihai Viteazul, liderul vizionar care a unit pentru prima dată cele trei țări românești în 1600. O istorie plină de curaj, trădare și legendă.</p>
+    </div>
+  </a>
+  <a href="articol_balaurii.html" class="card">
+    <div class="card-image">
+      <img src="images/balaurii.png" alt="România Modernă">
+    </div>
+    <div class="card-content">
+      <h3>Balaurii – Monștrii Mitici ai Pământului Românesc</h3>
+      <p>O călătorie prin legendele vechi cu balauri, ființe uriașe și înfricoșătoare care au marcat folclorul românesc și poveștile eroilor din vechime.</p>
     </div>
   </a>
 </section>
@@ -83,23 +143,22 @@
     </div>
   </footer>
 
-  <script>
-    const toggle = document.getElementById("theme-toggle");
-    const icon = toggle.querySelector(".icon");
-    const body = document.body;
+ <script>
+  const toggle = document.getElementById("theme");
+  const body = document.body;
 
-    // Încarcă tema salvată
-    if (localStorage.getItem("theme") === "dark") {
-      body.classList.add("dark");
-      icon.textContent = "🌙";
-    }
+  // Încarcă tema salvată
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    body.classList.add("dark");
+    toggle.checked = true;
+  }
 
-    toggle.addEventListener("click", () => {
-      body.classList.toggle("dark");
-      const isDark = body.classList.contains("dark");
-      icon.textContent = isDark ? "🌙" : "☀️";
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-  </script>
+  toggle.addEventListener("change", () => {
+    const isDark = toggle.checked;
+    body.classList.toggle("dark", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+</script>
 </body>
 </html>
